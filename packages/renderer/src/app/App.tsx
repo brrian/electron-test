@@ -7,7 +7,7 @@ export default function App() {
   return (
     <>
       <p>Version: {version}</p>
-      <p>baz</p>
+      <p>buzz</p>
       <InitializingScreen />
     </>
   );
