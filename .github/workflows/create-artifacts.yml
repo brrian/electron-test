@@ -88,6 +88,3 @@ jobs:
 
           mac_certs: ${{ secrets.OSX_CODE_SIGN_CERT }}
           mac_certs_password: ${{ secrets.OSX_CODE_SIGN_CERT_PASSWORD }}
-
-          windows_certs: ${{ secrets.WIN_CODE_SIGN_CERT }}
-          windows_certs_password: ${{ secrets.WIN_CODE_SIGN_CERT_PASSWORD }}
