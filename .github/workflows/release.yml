@@ -19,6 +19,8 @@ jobs:
           git push --follow-tags origin main
 
   create-artifacts:
+    needs: release
+
     uses: ./.github/workflows/create-artifacts.yml
     secrets:
       APPLE_API_KEY_ID: ${{ secrets.APPLE_API_KEY_ID}}
