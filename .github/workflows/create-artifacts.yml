@@ -21,6 +21,10 @@ on:
         required: true
       VITE_AUTO_UPDATE_URL:
         required: true
+      WIN_CODE_SIGN_CERT_PASSWORD:
+        required: true
+      WIN_CODE_SIGN_CERT:
+        required: true
 
 jobs:
   create-artifacts:
@@ -84,3 +88,6 @@ jobs:
 
           mac_certs: ${{ secrets.OSX_CODE_SIGN_CERT }}
           mac_certs_password: ${{ secrets.OSX_CODE_SIGN_CERT_PASSWORD }}
+
+          windows_certs: ${{ secrets.WIN_CODE_SIGN_CERT }}
+          windows_certs_password: ${{ secrets.WIN_CODE_SIGN_CERT_PASSWORD }}
