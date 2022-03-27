@@ -23,6 +23,8 @@ on:
         required: true
       S3_RELEASE_BUCKET:
         required: true
+      SNAPCRAFT_TOKEN:
+        required: true
       VITE_AUTO_UPDATE_URL:
         required: true
       WIN_CODE_SIGN_CERT_PASSWORD:
@@ -34,9 +36,8 @@ jobs:
   create-artifacts:
     strategy:
       matrix:
-        # os: [macos-latest]
-        os: [macos-latest, windows-latest]
-    #    os: [ macos-latest, ubuntu-latest, windows-latest ]
+        os: [ubuntu-latest]
+        # os: [macos-latest, windows-latest]
 
     runs-on: ${{ matrix.os }}
 
@@ -77,6 +78,12 @@ jobs:
         run: |
           mkdir -p ~/private_keys/
           echo '${{ secrets.APPLE_API_KEY }}' > ~/private_keys/AuthKey_${{ secrets.APPLE_API_KEY_ID }}.p8
+      # Only install Snapcraft on Ubuntu
+      - name: Install Snapcraft
+        uses: samuelmeuli/action-snapcraft@v1
+        if: startsWith(matrix.os, 'ubuntu')
+        with:
+          snapcraft_token: ${{ secrets.SNAPCRAFT_TOKEN }}
 
       - name: Compile
         uses: samuelmeuli/action-electron-builder@v1
