@@ -5,7 +5,7 @@ require('dotenv').config();
  * @see https://www.electron.build/configuration/configuration
  */
 const config = {
-  appId: 'com.tinynudge.pomello',
+  appId: process.env.VITE_APP_ID,
   productName: 'Pomello',
   directories: {
     output: 'dist',

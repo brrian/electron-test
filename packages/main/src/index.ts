@@ -1,4 +1,4 @@
-import { app, dialog, ipcMain, Notification } from 'electron';
+import { app, dialog, ipcMain } from 'electron';
 import logger from 'electron-log';
 import path from 'path';
 import createPomelloWindows from './createPomelloWindows';
@@ -22,21 +22,12 @@ app
   .whenReady()
   .then(() => {
     if (process.platform === 'win32') {
-      app.setAppUserModelId('com.tinynudge.pomello');
+      app.setAppUserModelId(import.meta.env.VITE_APP_ID);
     }
 
     createPomelloWindows();
 
     ipcMain.handle('open-file-dialog', async () => {
-      const foo = new Notification({
-        title: 'Open File Dialog',
-        body: 'Hello from the main process!',
-      });
-
-      foo.show();
-
-      return;
-
       const { canceled, filePaths } = await dialog.showOpenDialog(findOrFailWindow('app'), {
         properties: ['openFile'],
       });

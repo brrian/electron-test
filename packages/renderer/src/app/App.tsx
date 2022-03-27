@@ -7,7 +7,7 @@ export default function App() {
   return (
     <>
       <p>Version: {version}</p>
-      <p>buzz</p>
+      <pre>{import.meta.env.VITE_APP_ID}</pre>
       <InitializingScreen />
     </>
   );

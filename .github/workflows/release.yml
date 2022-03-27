@@ -3,8 +3,11 @@ name: Release
 on: workflow_dispatch
 
 jobs:
-  release:
+  draft:
     runs-on: ubuntu-latest
+
+    outputs:
+      commit-hash: ${{ steps.commit-hash.outputs.hash }}
 
     steps:
       - uses: actions/checkout@v3
@@ -18,10 +21,16 @@ jobs:
           npx standard-version
           git push --follow-tags origin main
 
+      - name: Get Latest Commit Hash
+        id: commit-hash
+        run: echo "::set-output name=hash::$(git rev-parse HEAD)"
+
   create-artifacts:
-    needs: release
+    needs: draft
 
     uses: ./.github/workflows/create-artifacts.yml
+    with:
+      COMMIT_HASH: ${{ needs.draft.outputs.commit-hash }}
     secrets:
       APPLE_API_KEY_ID: ${{ secrets.APPLE_API_KEY_ID}}
       APPLE_API_KEY_ISSUER: ${{ secrets.APPLE_API_KEY_ISSUER}}
