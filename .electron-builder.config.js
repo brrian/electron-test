@@ -23,6 +23,9 @@ const config = {
     bucket: process.env.S3_RELEASE_BUCKET,
     acl: 'private',
   },
+  extraMetadata: {
+    version: process.env.APP_VERSION,
+  },
 };
 
 module.exports = config;

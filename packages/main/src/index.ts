@@ -21,6 +21,10 @@ app.on('window-all-closed', () => {
 app
   .whenReady()
   .then(() => {
+    if (process.platform === 'win32') {
+      app.setAppUserModelId('com.tinynudge.pomello');
+    }
+
     createPomelloWindows();
 
     ipcMain.handle('open-file-dialog', async () => {

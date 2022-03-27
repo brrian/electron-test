@@ -10,8 +10,11 @@ on:
       - '.github/**'
 
 jobs:
-  release-alpha:
+  draft:
     runs-on: ubuntu-latest
+
+    outputs:
+      version: ${{ steps.version.outputs.build-version }}
 
     steps:
       - uses: actions/checkout@v3
@@ -23,10 +26,16 @@ jobs:
           npx standard-version --prerelease alpha --skip.tag --skip.changelog
           git push --follow-tags origin main
 
+      - name: Get New Version
+        id: version
+        run: echo "::set-output name=build-version::$(node -e "try{console.log(require('./package.json').version)}catch(e){console.error(e);process.exit(1)}")"
+
   create-artifacts:
-    needs: release-alpha
+    needs: draft
 
     uses: ./.github/workflows/create-artifacts.yml
+    with:
+      APP_VERSION: ${{ needs.draft.outputs.version }}
     secrets:
       APPLE_API_KEY_ID: ${{ secrets.APPLE_API_KEY_ID}}
       APPLE_API_KEY_ISSUER: ${{ secrets.APPLE_API_KEY_ISSUER}}
