@@ -1,4 +1,4 @@
-import { app, dialog, ipcMain } from 'electron';
+import { app, dialog, ipcMain, Notification } from 'electron';
 import logger from 'electron-log';
 import path from 'path';
 import createPomelloWindows from './createPomelloWindows';
@@ -24,6 +24,15 @@ app
     createPomelloWindows();
 
     ipcMain.handle('open-file-dialog', async () => {
+      const foo = new Notification({
+        title: 'Open File Dialog',
+        body: 'Hello from the main process!',
+      });
+
+      foo.show();
+
+      return;
+
       const { canceled, filePaths } = await dialog.showOpenDialog(findOrFailWindow('app'), {
         properties: ['openFile'],
       });

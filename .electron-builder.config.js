@@ -9,7 +9,7 @@ const config = {
   productName: 'Pomello',
   directories: {
     output: 'dist',
-    buildResources: 'buildResources',
+    buildResources: 'build',
   },
   files: ['packages/**/dist/**'],
   mac: {
