@@ -12,6 +12,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@app/': join(PACKAGE_ROOT, 'src/app') + '/',
+      '@models/': join(PACKAGE_ROOT, 'src/models') + '/',
       '@services/': join(PACKAGE_ROOT, 'src/services') + '/',
       '@ui/': join(PACKAGE_ROOT, 'src/ui') + '/',
     },

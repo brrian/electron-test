@@ -2,12 +2,12 @@ import getServiceById from '@services';
 import { version } from '../../../../package.json';
 
 export default function App() {
-  const { InitializingScreen } = getServiceById('jsonFile');
+  const { InitializingView } = getServiceById('jsonFile');
 
   return (
     <>
       <p>Version: {version}</p>
-      <InitializingScreen />
+      <InitializingView onReady={() => null} />
     </>
   );
 }

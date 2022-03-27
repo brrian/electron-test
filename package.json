@@ -12,7 +12,7 @@
     "build:preload": "vite build --config packages/preload/vite.config.js",
     "build:renderer": "vite build --config packages/renderer/vite.config.js",
     "lint:scripts": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "test:renderer": "vitest --root src/renderer",
+    "test:renderer": "vitest --root packages/renderer --coverage",
     "release": "standard-version",
     "compile:test": "electron-builder --config .electron-builder.config.js",
     "compile": "cross-env MODE=production npm run build && cross-env APPLE_API_KEY_ISSUER=69a6de89-a640-47e3-e053-5b8c7c11a4d1 APPLE_API_KEY=RT7XR8GWFB  electron-builder --config .electron-builder.config.js",

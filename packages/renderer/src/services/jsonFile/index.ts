@@ -1,7 +1,8 @@
-import InitializingScreen from './InitializingScreen';
+import { Service } from '@models';
+import InitializingView from './InitializingView';
 
-const jsonFile = {
-  InitializingScreen,
+const jsonFileService: Service = {
+  InitializingView,
 };
 
-export default jsonFile;
+export default jsonFileService;
