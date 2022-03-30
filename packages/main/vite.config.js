@@ -31,4 +31,13 @@ export default defineConfig({
     emptyOutDir: true,
     brotliSize: false,
   },
+  test: {
+    clearMocks: true,
+    coverage: {
+      all: true,
+      exclude: ['src/index.ts', 'src/**/__tests__/**/*.ts'],
+      include: ['src/**/*.ts'],
+    },
+    globals: true,
+  },
 });

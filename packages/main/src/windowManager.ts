@@ -10,6 +10,10 @@ interface FindOrCreateWindowOptions {
 
 const windows: Map<string, BrowserWindow> = new Map();
 
+export function clearWindowCache() {
+  windows.clear();
+}
+
 export async function findOrCreateWindow({
   devTools = { mode: 'detach' },
   id,

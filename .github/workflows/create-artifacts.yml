@@ -78,6 +78,7 @@ jobs:
         run: |
           mkdir -p ~/private_keys/
           echo '${{ secrets.APPLE_API_KEY }}' > ~/private_keys/AuthKey_${{ secrets.APPLE_API_KEY_ID }}.p8
+
       # Only install Snapcraft on Ubuntu
       - name: Install Snapcraft
         uses: samuelmeuli/action-snapcraft@v1

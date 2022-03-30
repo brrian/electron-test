@@ -12,6 +12,7 @@
     "build:preload": "vite build --config packages/preload/vite.config.js",
     "build:renderer": "vite build --config packages/renderer/vite.config.js",
     "lint:scripts": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "test:main": "vitest --root packages/main --coverage",
     "test:renderer": "vitest --root packages/renderer --coverage",
     "release": "standard-version",
     "compile:test": "electron-builder --config .electron-builder.config.js",
@@ -33,6 +34,7 @@
     "@typescript-eslint/eslint-plugin": "^5.15.0",
     "@typescript-eslint/parser": "^5.15.0",
     "@vitejs/plugin-react": "^1.2.0",
+    "c8": "^7.11.0",
     "cross-env": "^7.0.3",
     "dotenv": "^16.0.0",
     "electron": "^17.1.2",
@@ -48,7 +50,7 @@
     "standard-version": "^9.3.2",
     "typescript": "^4.6.2",
     "vite": "^2.8.6",
-    "vitest": "^0.6.1"
+    "vitest": "^0.7.12"
   },
   "private": true
 }
