@@ -4,7 +4,7 @@ import App from './App';
 
 render(
   <StrictMode>
-    <App />
+    <App serviceId="jsonFile" />
   </StrictMode>,
   document.getElementById('root')
 );

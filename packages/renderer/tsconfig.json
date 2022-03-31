@@ -12,10 +12,7 @@
     "types": ["node"],
     "baseUrl": ".",
     "paths": {
-      "@app/*": ["./src/app/*"],
-      "@models": ["./src/models"],
-      "@services": ["./src/services"],
-      "@ui/*": ["./src/ui/*"]
+      "@/*": ["./src/*"]
     },
     "lib": ["ESNext", "dom", "dom.iterable"]
   },

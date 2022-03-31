@@ -1,5 +1,5 @@
-import { InitializingViewComponent } from '@models';
-import Button from '@ui/Button';
+import { InitializingViewComponent } from '@/models';
+import Button from '@/ui/Button';
 
 const InitializingView: InitializingViewComponent = () => {
   // Getting settings to see if we have a stored task file
@@ -13,7 +13,7 @@ const InitializingView: InitializingViewComponent = () => {
           console.log(await window.openFileDialog());
         }}
       >
-        Load File
+        Select a file
       </Button>
     </div>
   );

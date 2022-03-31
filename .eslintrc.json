@@ -7,6 +7,5 @@
     "es6": true,
     "node": true,
     "jest": true
-  },
-  "ignorePatterns": ["**/node_modules/**", "**/dist/**"]
+  }
 }

@@ -1,13 +1,18 @@
-import getServiceById from '@services';
-import { version } from '../../../../package.json';
+import getServiceById from '@/services';
+import { FC } from 'react';
 
-export default function App() {
-  const { InitializingView } = getServiceById('jsonFile');
+interface AppProps {
+  serviceId: string;
+}
+
+const App: FC<AppProps> = ({ serviceId }) => {
+  const { InitializingView } = getServiceById(serviceId);
 
   return (
     <>
-      <p>Version: {version}</p>
       <InitializingView onReady={() => null} />
     </>
   );
-}
+};
+
+export default App;

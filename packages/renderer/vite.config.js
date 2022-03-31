@@ -11,10 +11,7 @@ export default defineConfig({
   root: PACKAGE_ROOT,
   resolve: {
     alias: {
-      '@app/': join(PACKAGE_ROOT, 'src/app') + '/',
-      '@models/': join(PACKAGE_ROOT, 'src/models') + '/',
-      '@services/': join(PACKAGE_ROOT, 'src/services') + '/',
-      '@ui/': join(PACKAGE_ROOT, 'src/ui') + '/',
+      '@/': join(PACKAGE_ROOT, 'src') + '/',
     },
   },
   plugins: [react()],
@@ -39,6 +36,11 @@ export default defineConfig({
     brotliSize: false,
   },
   test: {
+    coverage: {
+      all: true,
+      exclude: ['src/models', 'src/__fixtures__', '**/*.spec.{ts,tsx}'],
+      include: ['src/**/*.{ts,tsx}'],
+    },
     globals: true,
     environment: 'happy-dom',
     setupFiles: './setupTests.ts',
